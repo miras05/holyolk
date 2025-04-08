@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holy Yolk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Days+One&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Блок 1: Главный блок -->
+        <header class="fade-in">
+            <h1>Holy Yolk</h1>
+            <button class="btn">Buy on PancakeSwap</button>
+            <button class="btn">Copy coin's link</button>
+            <button class="btn">View on DEX Screener</button>
+        </header>
+        
+        <!-- Блок 2: О проекте -->
+        <section class="fade-in">
+            <h2>About this project</h2>
+            <p>Short Description</p>
+            <img src="eggg.png" alt="Egg with coins" width="300">
+        </section>
+        
+        <!-- Блок 3: Сообщество и взаимодействие -->
+        <section class="fade-in">
+            <h2>Join to Yolk's revolution</h2>
+            <button class="btn">Join Telegram</button>
+            <button class="btn">Subscribe on Twitter</button>
+            <button class="btn">Join Discord</button>
+            <h3>Last tweets</h3>
+            <iframe src="https://fartcoin.gold/" width="100%" height="200"></iframe>
+        </section>
+        
+        <!-- Блок 4: Нижний колонтитул -->
+        <footer class="fade-in">
+            <p style="line-height: 30px;">Earn from Your Invited Users
+                <br>When your referrals register and trade, you earn:
+                <br>💰 Cashback from their trading fees
+                <br>🎁 Bonuses for their activity
+            </p>
+            <div class="social-links">
+                <img src="X.png" alt="Twitter">
+                <img src="telegram.png" alt="Telegram">
+                <img src="tiktok.png" alt="TikTok">
+                <img src="discord.png" alt="Discord">
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Генерация кроликов, случайное движение по экрану
+        for (let i = 0; i < 20; i++) { // Количество кроликов
+            const rabbit = document.createElement('img');
+            rabbit.src = 'rabbit.png'; // Замените на путь к вашему изображению кролика
+            rabbit.classList.add('rabbit');
+            document.body.appendChild(rabbit);
+
+            // Случайные начальные позиции
+            const randomX = Math.random() * window.innerWidth;
+            const randomY = Math.random() * window.innerHeight;
+
+            // Устанавливаем случайные начальные позиции
+            rabbit.style.left = `${randomX}px`;
+            rabbit.style.top = `${randomY}px`;
+
+            // Задаем случайное движение с помощью JavaScript
+            setInterval(() => {
+                const moveX = Math.random() * 1000 - 500; // Случайное смещение по оси X
+                const moveY = Math.random() * 1000 - 500; // Случайное смещение по оси Y
+                rabbit.style.transition = "transform 7s ease-in-out";
+                rabbit.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            }, 3000); // Каждые 3 секунды кролик будет перемещаться
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+    const fadeElements = document.querySelectorAll(".fade-in");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, { threshold: 0.2 });
+
+    fadeElements.forEach(el => observer.observe(el));
+});
+    </script>
+</body>
+</html>
